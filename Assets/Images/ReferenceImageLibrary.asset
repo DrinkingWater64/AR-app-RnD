@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 848409ee8ba454f42a5ddff137688a27, type: 3}
+  m_Name: ReferenceImageLibrary
+  m_EditorClassIdentifier: 
+  m_GuidLow: 5446737173612097774
+  m_GuidHigh: 12316707735736725380
+  m_DataStore:
+    m_Storage: []
+  m_Images:
+  - m_SerializedGuid:
+      m_GuidLow: 5632960148564429226
+      m_GuidHigh: 6216605783260019352
+    m_SerializedTextureGuid:
+      m_GuidLow: 8161879054861832008
+      m_GuidHigh: 4950356734264191289
+    m_Size: {x: 0.1, y: 0.056250002}
+    m_SpecifySize: 1
+    m_Name: bulba
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5647747379897071721
+      m_GuidHigh: 6305883337367792803
+    m_SerializedTextureGuid:
+      m_GuidLow: 12539163101072780661
+      m_GuidHigh: 1831558175184065882
+    m_Size: {x: 0.1, y: 0.099609375}
+    m_SpecifySize: 1
+    m_Name: charmander
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5363281955533865046
+      m_GuidHigh: 8002666809520585654
+    m_SerializedTextureGuid:
+      m_GuidLow: 4910169693620706158
+      m_GuidHigh: 18108960429443181115
+    m_Size: {x: 0.1, y: 0.10919118}
+    m_SpecifySize: 1
+    m_Name: squirtle
+    m_Texture: {fileID: 0}

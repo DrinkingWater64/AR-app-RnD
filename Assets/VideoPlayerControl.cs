@@ -48,8 +48,16 @@ public class VideoPlayerControl : MonoBehaviour
     {
         if (!isDragging)
         {
+            if (_videoPlayer.isPaused)
+            {
+                ResumeVideo();
+            }
             _slider.value = (float)_videoPlayer.frame / (float)totalFrame;
-            Debug.Log("whaaaa");
+        }
+        else
+        {
+            PauseVideo();
+            GotoFrameAtPercent(_slider.value);
         }
     }
 

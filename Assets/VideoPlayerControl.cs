@@ -14,14 +14,14 @@ public class VideoPlayerControl : MonoBehaviour
     private VideoPlayer _videoPlayer;
     [SerializeField]
     private Slider _slider;
-
+    private bool isPaused = false;
     private bool isDragging;
 
     // Start is called before the first frame update
     void Start()
     {
         totalFrame = (long)_videoPlayer.frameCount;
-        GotoFrameAtPercent(.5f);
+        //GotoFrameAtPercent(.5f);
 
         // Add event listeners for slider dragging using EventTrigger
         EventTrigger eventTrigger = _slider.GetComponent<EventTrigger>();
@@ -46,24 +46,39 @@ public class VideoPlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isDragging)
+        if (!isPaused)
         {
-            if (_videoPlayer.isPaused)
+            if (!isDragging)
             {
-                ResumeVideo();
+                if (_videoPlayer.isPaused)
+                {
+                    _videoPlayer.Play();
+                }
+                _slider.value = (float)_videoPlayer.frame / (float)totalFrame;
             }
-            _slider.value = (float)_videoPlayer.frame / (float)totalFrame;
-        }
-        else
-        {
-            PauseVideo();
-            GotoFrameAtPercent(_slider.value);
+            else
+            {
+                _videoPlayer.Pause();
+                GotoFrameAtPercent(_slider.value);
+            }
+
         }
     }
 
     public void PauseVideo()
     {
+        if (!_videoPlayer.isPaused)
+        {
         _videoPlayer.Pause();
+        isPaused = true;
+        }
+        else
+        {
+            _videoPlayer.Play();
+            isPaused  = false;
+        }
+        Debug.Log("Pausing");
+
     }
 
     public void ResumeVideo()
@@ -75,6 +90,7 @@ public class VideoPlayerControl : MonoBehaviour
     {
         float newFrame = percent * _videoPlayer.frameCount;
         _videoPlayer.frame = (long)newFrame;
+        Debug.Log($"{percent} {newFrame}");
     }
 
     private void OnSliderValueChanged(float value)
@@ -88,12 +104,14 @@ public class VideoPlayerControl : MonoBehaviour
     {
         // Set the dragging flag when the slider is being dragged
         isDragging = true;
-        Debug.Log("down");
+        Debug.Log("down at "+ _slider.value);
     }
 
     private void OnSliderPointerUp(PointerEventData eventData)
     {
         // Reset the dragging flag when the slider dragging ends
         isDragging = false;
+        GotoFrameAtPercent(_slider.value);
+        Debug.Log("up at "+ _slider.value);
     }
 }

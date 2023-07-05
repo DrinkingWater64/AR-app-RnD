@@ -16,7 +16,20 @@ public class VideoPlayerControl : MonoBehaviour
     private Slider _slider;
     private bool isPaused = false;
     private bool isDragging;
+    private float lastValue = 0;
 
+
+    private void OnEnable()
+    {
+        GotoFrameAtPercent(lastValue);
+        Debug.Log("enabled on " + lastValue);
+    }
+
+    private void OnDisable()
+    {
+        lastValue = _slider.value;
+        Debug.Log("Disabled");
+    }
     // Start is called before the first frame update
     void Start()
     {

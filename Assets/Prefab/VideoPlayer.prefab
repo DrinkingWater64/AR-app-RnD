@@ -102,8 +102,8 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1627891963667398378}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.028}
+  m_LocalRotation: {x: 0.008604197, y: -0.0014221588, z: -0.00000003952299, w: 0.999962}
+  m_LocalPosition: {x: 0, y: 0, z: -0.028000552}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -111,10 +111,10 @@ RectTransform:
   - {fileID: 6125657565944569382}
   m_Father: {fileID: 7589814204481321744}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0.986, y: -0.163, z: -0.001}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0.00001001358, y: -0.000060204417}
   m_SizeDelta: {x: 5, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &5105871088963676532
@@ -502,7 +502,7 @@ GameObject:
   - component: {fileID: 8805444506710787209}
   - component: {fileID: 4544353501689206832}
   m_Layer: 0
-  m_Name: videoplayer
+  m_Name: video
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -584,8 +584,8 @@ Transform:
   m_GameObject: {fileID: 6548716349376118215}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 3.5, y: 3.5, z: 3.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5062372324498648296}
   - {fileID: 4050158607053302158}

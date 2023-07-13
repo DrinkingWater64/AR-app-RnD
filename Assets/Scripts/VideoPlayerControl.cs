@@ -127,4 +127,20 @@ public class VideoPlayerControl : MonoBehaviour
         GotoFrameAtPercent(_slider.value);
         Debug.Log("up at "+ _slider.value);
     }
+
+    public void RestartVideo()
+    {
+        // Reset the video player's frame to the first frame
+        _videoPlayer.frame = 0;
+
+        // Play the video
+        _videoPlayer.Play();
+
+        // Reset the slider value
+        _slider.value = 0f;
+
+        // Reset the isPaused flag
+        isPaused = false;
+    }
+
 }

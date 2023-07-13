@@ -77,7 +77,7 @@ public class MultiImageTracker : MonoBehaviour
         currentPrefab.transform.position = position;
         currentPrefab.SetActive(true);
 
-        foreach(var prefab in prefabList)
+        foreach (var prefab in prefabList)
         {
             if (prefab.Key != name)
             {

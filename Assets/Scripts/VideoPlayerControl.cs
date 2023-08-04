@@ -5,24 +5,29 @@ using UnityEngine.UI;
 using UnityEngine.Video;
 using UnityEngine.EventSystems;
 
+/// <summary>
+/// This component provides controls for a VideoPlayer object.
+/// </summary>
 public class VideoPlayerControl : MonoBehaviour
 {
-    private long currentFrame;
-    private long totalFrame;
+    #region Private Variables
 
-    [SerializeField]
-    private VideoPlayer _videoPlayer;
-    [SerializeField]
-    private Slider _slider;
+    [SerializeField] private VideoPlayer _videoPlayer;
+    [SerializeField] private Slider _slider;
+
+    private long totalFrame;
     private bool isPaused = false;
     private bool isDragging;
     private float lastValue = 0;
 
+    #endregion
+
+    #region Unity Events
 
     private void OnEnable()
     {
         GotoFrameAtPercent(lastValue);
-        Debug.Log("enabled on " + lastValue);
+        Debug.Log("Enabled on " + lastValue);
     }
 
     private void OnDisable()
@@ -30,34 +35,75 @@ public class VideoPlayerControl : MonoBehaviour
         lastValue = _slider.value;
         Debug.Log("Disabled");
     }
-    // Start is called before the first frame update
+
     void Start()
     {
         totalFrame = (long)_videoPlayer.frameCount;
-        //GotoFrameAtPercent(.5f);
-
-        // Add event listeners for slider dragging using EventTrigger
-        EventTrigger eventTrigger = _slider.GetComponent<EventTrigger>();
-        if (eventTrigger == null)
-        {
-            eventTrigger = _slider.gameObject.AddComponent<EventTrigger>();
-        }
-
-        // Add PointerDown event trigger
-        EventTrigger.Entry pointerDownEntry = new EventTrigger.Entry();
-        pointerDownEntry.eventID = EventTriggerType.PointerDown;
-        pointerDownEntry.callback.AddListener((data) => OnSliderPointerDown((PointerEventData)data));
-        eventTrigger.triggers.Add(pointerDownEntry);
-
-        // Add PointerUp event trigger
-        EventTrigger.Entry pointerUpEntry = new EventTrigger.Entry();
-        pointerUpEntry.eventID = EventTriggerType.PointerUp;
-        pointerUpEntry.callback.AddListener((data) => OnSliderPointerUp((PointerEventData)data));
-        eventTrigger.triggers.Add(pointerUpEntry);
+        InitializeSliderEventTriggers();
     }
 
-    // Update is called once per frame
     void Update()
+    {
+        UpdateVideoPlayback();
+    }
+
+    #endregion
+
+    #region Public Methods
+
+    /// <summary>
+    /// Pauses or resumes the video playback.
+    /// </summary>
+    public void PauseOrResumeVideo()
+    {
+        if (!_videoPlayer.isPaused)
+        {
+            _videoPlayer.Pause();
+            isPaused = true;
+        }
+        else
+        {
+            _videoPlayer.Play();
+            isPaused = false;
+        }
+        Debug.Log("Pausing/Resuming");
+    }
+
+    /// <summary>
+    /// Resumes the video playback.
+    /// </summary>
+    public void ResumeVideo()
+    {
+        _videoPlayer.Play();
+    }
+
+    /// <summary>
+    /// Goes to the frame at the specified percentage of the video.
+    /// </summary>
+    /// <param name="percent">The percentage of the video to go to.</param>
+    public void GotoFrameAtPercent(float percent)
+    {
+        float newFrame = percent * _videoPlayer.frameCount;
+        _videoPlayer.frame = (long)newFrame;
+        Debug.Log($"{percent} {newFrame}");
+    }
+
+    /// <summary>
+    /// Restarts the video playback from the beginning.
+    /// </summary>
+    public void RestartVideo()
+    {
+        _videoPlayer.frame = 0;
+        _videoPlayer.Play();
+        _slider.value = 0f;
+        isPaused = false;
+    }
+
+    #endregion
+
+    #region Private Methods
+
+    private void UpdateVideoPlayback()
     {
         if (!isPaused)
         {
@@ -67,80 +113,52 @@ public class VideoPlayerControl : MonoBehaviour
                 {
                     _videoPlayer.Play();
                 }
-                _slider.value = (float)_videoPlayer.frame / (float)totalFrame;
+                UpdateSliderValue();
             }
             else
             {
                 _videoPlayer.Pause();
                 GotoFrameAtPercent(_slider.value);
             }
-
         }
     }
 
-    public void PauseVideo()
+    private void UpdateSliderValue()
     {
-        if (!_videoPlayer.isPaused)
-        {
-        _videoPlayer.Pause();
-        isPaused = true;
-        }
-        else
-        {
-            _videoPlayer.Play();
-            isPaused  = false;
-        }
-        Debug.Log("Pausing");
-
-    }
-
-    public void ResumeVideo()
-    {
-        _videoPlayer.Play();
-    }
-
-    public void GotoFrameAtPercent(float percent)
-    {
-        float newFrame = percent * _videoPlayer.frameCount;
-        _videoPlayer.frame = (long)newFrame;
-        Debug.Log($"{percent} {newFrame}");
-    }
-
-    private void OnSliderValueChanged(float value)
-    {
-        // Update video frame based on the slider value
-        long newFrame = (long)(value * totalFrame);
-        _videoPlayer.frame = newFrame;
+        _slider.value = (float)_videoPlayer.frame / (float)totalFrame;
     }
 
     private void OnSliderPointerDown(PointerEventData eventData)
     {
-        // Set the dragging flag when the slider is being dragged
         isDragging = true;
-        Debug.Log("down at "+ _slider.value);
+        Debug.Log("Slider Pointer Down at " + _slider.value);
     }
 
     private void OnSliderPointerUp(PointerEventData eventData)
     {
-        // Reset the dragging flag when the slider dragging ends
         isDragging = false;
         GotoFrameAtPercent(_slider.value);
-        Debug.Log("up at "+ _slider.value);
+        Debug.Log("Slider Pointer Up at " + _slider.value);
     }
 
-    public void RestartVideo()
+    private void InitializeSliderEventTriggers()
     {
-        // Reset the video player's frame to the first frame
-        _videoPlayer.frame = 0;
+        EventTrigger eventTrigger = _slider.GetComponent<EventTrigger>();
+        if (eventTrigger == null)
+        {
+            eventTrigger = _slider.gameObject.AddComponent<EventTrigger>();
+        }
 
-        // Play the video
-        _videoPlayer.Play();
+        EventTrigger.Entry pointerDownEntry = new EventTrigger.Entry();
+        pointerDownEntry.eventID = EventTriggerType.PointerDown;
+        pointerDownEntry.callback.AddListener((data) => OnSliderPointerDown((PointerEventData)data));
+        eventTrigger.triggers.Add(pointerDownEntry);
 
-        // Reset the slider value
-        _slider.value = 0f;
-
-        // Reset the isPaused flag
-        isPaused = false;
+        EventTrigger.Entry pointerUpEntry = new EventTrigger.Entry();
+        pointerUpEntry.eventID = EventTriggerType.PointerUp;
+        pointerUpEntry.callback.AddListener((data) => OnSliderPointerUp((PointerEventData)data));
+        eventTrigger.triggers.Add(pointerUpEntry);
     }
 
+    #endregion
 }

@@ -99,6 +99,7 @@ public class VideoPlayerControl : MonoBehaviour
         isPaused = false;
     }
 
+
     #endregion
 
     #region Private Methods

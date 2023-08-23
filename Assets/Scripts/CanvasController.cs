@@ -44,11 +44,17 @@ public class CanvasController : MonoBehaviour
     /// </summary>
     private void SetCameraForCanvas()
     {
-        _camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         if (gameObject.GetComponent<Canvas>().renderMode == RenderMode.WorldSpace)
         {
+            _camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
             gameObject.GetComponent<Canvas>().worldCamera = _camera;
-            Debug.Log("-----------------------------------------------------------camera is set-------------------------------------------------");
+            Debug.Log("-----------------------------------------------------------camera is set for worldSpace-------------------------------------------------");
+        }
+        else if (gameObject.GetComponent<Canvas>().renderMode == RenderMode.ScreenSpaceCamera)
+        {
+            _camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+            gameObject.GetComponent<Canvas>().worldCamera = _camera;
+            Debug.Log("-----------------------------------------------------------camera is set for screenSpaceCamera-------------------------------------------------");
         }
     }
 

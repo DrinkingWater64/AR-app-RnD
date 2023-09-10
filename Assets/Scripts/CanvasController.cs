@@ -23,6 +23,7 @@ public class CanvasController : MonoBehaviour
 
     private void OnEnable()
     {
+        //this.gameObject.SetActive(true);
         SetCameraForCanvas();
     }
 
@@ -31,11 +32,17 @@ public class CanvasController : MonoBehaviour
         //if camera not set properly for the world canvas
         if (_camera != null)
         {
-            Debug.Log(GetComponent<Canvas>().worldCamera.name);
+            //Debug.Log(GetComponent<Canvas>().worldCamera.name);
         }
     }
 
     #endregion
+
+    public void CloseSelf()
+    {
+        gameObject.SetActive(false);
+    }
+
 
     #region Private Methods
 

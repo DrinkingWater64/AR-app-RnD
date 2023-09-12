@@ -306,7 +306,7 @@ GameObject:
   - component: {fileID: 3846502836649412481}
   - component: {fileID: 5113184458183857269}
   m_Layer: 5
-  m_Name: Button
+  m_Name: CloseButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -834,7 +834,7 @@ Transform:
   m_Children:
   - {fileID: 7663685843779662707}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8184493341427995705
 GameObject:

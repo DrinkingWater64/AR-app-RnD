@@ -506,8 +506,8 @@ MonoBehaviour:
   _countText: {fileID: 1688477031}
   _PrefabsToSpawn:
   - {fileID: 1375839477553153202, guid: 0e8fa598d15bf184387736937f08460e, type: 3}
-  - {fileID: 1375839477553153202, guid: c605f25627df6a14283f818b6e8a1aa2, type: 3}
-  - {fileID: 1375839477553153202, guid: 06a4d621026ee5943a1f415b3b279250, type: 3}
+  - {fileID: 1375839477553153202, guid: 5cbf28fbf75e03a478854753f14e805b, type: 3}
+  - {fileID: 1375839477553153202, guid: 4c9ec7415f040914088acd0c406a3f39, type: 3}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0

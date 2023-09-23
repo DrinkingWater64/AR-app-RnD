@@ -14,10 +14,6 @@ public class MultiImageTracker : MonoBehaviour
 
     private int _count = 0;
     [SerializeField]
-    private TextMeshProUGUI _text;
-    [SerializeField]
-    private TextMeshProUGUI _countText;
-    [SerializeField]
     private GameObject[] _PrefabsToSpawn;
     Dictionary<string, GameObject> prefabList = new Dictionary<string, GameObject>();
     private ARTrackedImageManager _aRTrackedImageManager;
@@ -97,8 +93,10 @@ public class MultiImageTracker : MonoBehaviour
     {
         var name = aRTrackedImage.referenceImage.name;
         var position = aRTrackedImage.transform.position;
-        _text.text = name;
-        _countText.text = _aRTrackedImageManager.trackables.count.ToString();
+        //_text.text = name;
+        Debug.Log("-----------------------------------" + name + "------------------------------------");
+        //_countText.text = _aRTrackedImageManager.trackables.count.ToString();
+        Debug.Log("-----------------------------------" + _aRTrackedImageManager.trackables.count.ToString() + "------------------------------------");
         var currentPrefab = prefabList[name];
         currentPrefab.transform.position = position;
         currentPrefab.SetActive(true);

@@ -14,7 +14,7 @@ public class MultiImageTracker : MonoBehaviour
 
     private int _count = 0;
     [SerializeField]
-    private GameObject[] _PrefabsToSpawn;
+    private List<GameObject> _PrefabsToSpawn;
     Dictionary<string, GameObject> prefabList = new Dictionary<string, GameObject>();
     private ARTrackedImageManager _aRTrackedImageManager;
 
@@ -110,5 +110,12 @@ public class MultiImageTracker : MonoBehaviour
         }
     }
 
+
+
     #endregion
+
+    public void AddtoList(GameObject gameObject)
+    {
+        _PrefabsToSpawn.Add(gameObject);
+    }
 }

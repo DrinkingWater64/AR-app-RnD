@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4571069163116008128}
   m_Layer: 0
-  m_Name: bulba
+  m_Name: SpawnOnImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -161,6 +161,12 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4236915060986271197, guid: 9c2b35ca3c6830b409933d3eb6344d9c,
+        type: 3}
+      propertyPath: m_VideoClip
+      value: 
+      objectReference: {fileID: 32900000, guid: fc4756c587b633a4ca0fb4670a1c7e5b,
+        type: 3}
     - target: {fileID: 6344036237010688073, guid: 9c2b35ca3c6830b409933d3eb6344d9c,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName

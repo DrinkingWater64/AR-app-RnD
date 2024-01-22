@@ -25,3 +25,15 @@ or,
     * ![Squirtle](https://github.com/DrinkingWater64/AR-app-RnD/blob/master/gitmedias/usage3.jpg)
 6. The Blue button (1) on the left-upper corner closes the video player widget on the screen and returns to the camera view. The red button (2) on the left button corner pauses and resumes the video. The slider (3) is the seeker. 
     * ![Squirtle](https://github.com/DrinkingWater64/AR-app-RnD/blob/master/gitmedias/usage4.jpg)
+
+## How To Add videos:
+Inside the editor, to add a new image and a corresponding video,
+1. Import the image and corresponding video.
+2. GotoPrefabs and duplicate prefab named "SpawnedVideoPlayer"
+3. Find the gameobject named "video"
+4. In the inspect menu find "video player" component
+5. In the component find "Video clip" and attatch the imported video.
+6. Go to scene "MainScene"
+7. In the scene hierarchy find "AR Session Origin".
+8. Find the component "Multi image tracker" in the inspect window.
+9. Add the new prefab in the "prefab to spawn" list.

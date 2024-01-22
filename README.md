@@ -41,20 +41,20 @@ Inside the editor, to add a new image and a corresponding video,
 # Important Prefabs
 ### SpawnOnImage
 It contains 
-    1. Sphere: A reticle to test if the game object is spawning on the correct location
-    2. VideoPlayerPromt: A prefab which holds the play button and the video player
+1. Sphere: A reticle to test if the game object is spawning on the correct location
+2. VideoPlayerPromt: A prefab which holds the play button and the video player
 ### VideoPlayerPrompt
 It contains
-    1. A Canvas object in world space, it has a button which is the play button. To change the button style or set a thumbnail, edit this button.
-    2. A VideoPlayerFullScreen or VideoPlayer prefab.
+1. A Canvas object in world space, it has a button which is the play button. To change the button style or set a thumbnail, edit this button.
+2. A VideoPlayerFullScreen or VideoPlayer prefab.
 ### VideoPlayer
 It handles video player related works. This video player plays a video on the workd space, anchored to the image.
-    1. Display is a plane with a Renderer material videoRendererTexture, A video is rendered on this plane.
-    11. video is a object with a Video Player component, the appropriate video has to be selected in the palyer. The target Texture is switched to videoRendererTexture.
-    2. Canvas holds the UI to control video. It has the slider and necessery buttons.
+1. Display is a plane with a Renderer material videoRendererTexture, A video is rendered on this plane.
+11. video is a object with a Video Player component, the appropriate video has to be selected in the palyer. The target Texture is switched to videoRendererTexture.
+2. Canvas holds the UI to control video. It has the slider and necessery buttons.
 
 ### VideoPlayerFullScreen
 This video player plays video in full screen.
-    1. Display is a plane with a Renderer material videoRendererTexture, A video is rendered on this plane.
-    11. video is a object with a Video Player component, the appropriate video has to be selected in the palyer. The target Texture is switched to videoRendererTexture.
-    2. Canvas holds the UI to control video. It has the slider and necessery buttons.
+1. Display is a plane with a Renderer material videoRendererTexture, A video is rendered on this plane.
+11. video is a object with a Video Player component, the appropriate video has to be selected in the palyer. The target Texture is switched to videoRendererTexture.
+2. Canvas holds the UI to control video. It has the slider and necessery buttons.

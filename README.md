@@ -29,14 +29,17 @@ or,
 ## How To Add videos:
 Inside the editor, to add a new image and a corresponding video,
 1. Import the image and corresponding video.
-2. GotoPrefabs and duplicate prefab named "SpawnedVideoPlayer"
-3. Find the gameobject named "video"
-4. In the inspect menu find "video player" component
-5. In the component find "Video clip" and attatch the imported video.
-6. Go to scene "MainScene"
-7. In the scene hierarchy find "AR Session Origin".
-8. Find the component "Multi image tracker" in the inspect window.
-9. Add the new prefab in the "prefab to spawn" list.
+2. Give a distinct name to the image.
+3. Add the image to the Image reference Library
+4. GotoPrefabs and duplicate prefab named "SpawnedVideoPlayer"
+5. Rename the prefab to the name you set for the image earlier. This is very important. The image and prefab must have the same name.
+6. Find the gameobject named "video"
+7. In the inspect menu find "video player" component
+8. In the component find "Video clip" and attatch the imported video.
+9. Go to scene "MainScene"
+10. In the scene hierarchy find "AR Session Origin".
+11. Find the component "Multi image tracker" in the inspect window.
+12. Add the new prefab in the "prefab to spawn" list.
 
 # Important Prefabs
 ### SpawnOnImage

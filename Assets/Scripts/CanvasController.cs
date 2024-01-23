@@ -37,7 +37,9 @@ public class CanvasController : MonoBehaviour
     }
 
     #endregion
-
+    /// <summary>
+    /// Deactivates this game object which is the canvas. 
+    /// </summary>
     public void CloseSelf()
     {
         gameObject.SetActive(false);

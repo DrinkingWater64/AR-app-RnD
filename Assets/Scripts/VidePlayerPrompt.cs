@@ -5,18 +5,10 @@ using UnityEngine;
 public class VidePlayerPrompt : MonoBehaviour
 {
     [SerializeField] GameObject videoPlayer;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    /// <summary>
+    /// Activates the VideoPlayerPromt Prefab or Object. This method is used by a unity button.
+    /// </summary>
     public void PlayVideoOnScreen()
     {
         Debug.Log("----------------------------------------"+videoPlayer);

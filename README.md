@@ -51,7 +51,7 @@ It contains
 1. A Canvas object in world space, it has a button which is the play button. To change the button style or set a thumbnail, edit this button.
 2. A VideoPlayerFullScreen or VideoPlayer prefab.
 ### VideoPlayer
-It handles video player related works. This video player plays a video on the workd space, anchored to the image.
+It handles video player related works. This video player plays a video on the world space, anchored to the image.
 1. Display is a plane with a Renderer material videoRendererTexture, A video is rendered on this plane.
 11. video is a object with a Video Player component, the appropriate video has to be selected in the palyer. The target Texture is switched to videoRendererTexture.
 2. Canvas holds the UI to control video. It has the slider and necessery buttons.

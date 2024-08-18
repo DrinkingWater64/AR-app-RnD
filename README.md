@@ -31,7 +31,7 @@ Inside the editor, to add a new image and a corresponding video,
 1. Import the image and corresponding video.
 2. Give a distinct name to the image.
 3. Add the image to the Image reference Library
-4. GotoPrefabs and duplicate prefab named "SpawnedVideoPlayer"
+4. Go to Prefabs and duplicate prefab named "SpawnedVideoPlayer"
 5. Rename the prefab to the name you set for the image earlier. This is very important. The image and prefab must have the same name.
 6. Find the gameobject named "video"
 7. In the inspect menu find "video player" component
